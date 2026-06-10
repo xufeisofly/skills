@@ -1,0 +1,7 @@
+{
+  "name": "xufeisofly-skills",
+  "skills": [
+    "./skills/rpt-workflow",
+    "./skills/setup-xufeisofly-skills"
+  ]
+}
