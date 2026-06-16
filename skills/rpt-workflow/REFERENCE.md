@@ -14,9 +14,11 @@ Task lists appear in both `plan.md` and `overview.md`, but for different reasons
 | Moment | Default behavior |
 |---|---|
 | Research complete | Present open questions and wait for user answers on key issues |
-| Plan complete | Deliver `plan.md`, accept review, and revise until the user confirms — this is the final user checkpoint |
-| Task loop | Autonomous: per task, write Plan → dispatch subagent to Implement → Verify; update `overview.md`; no user review between tasks |
-| All tasks complete | Run final verification (overall acceptance criteria + standard build/test), record in `overview.md`, report to user |
+| Plan complete | Deliver `plan.md`, accept review, and revise until the user confirms |
+| Plan confirmed | Ask the user to choose the Task-phase execution mode — Autonomous (run all tasks straight through) or Step-by-step (pause after each task's verify); record the choice in `overview.md` |
+| Task loop | Per task, write Plan → dispatch subagent to Implement → Verify; update `overview.md`. Autonomous: continue to the next task without review. Step-by-step: present the completed task and wait for the user's go-ahead before the next |
+| All tasks complete | Run final verification (overall acceptance criteria + standard build/test), record in `overview.md` |
+| Final verify passed | Dispatch `code-simplifier` subagent over the changed files (behavior-preserving), re-run final verification if it edited anything, record in `overview.md`, report to user |
 
 ## overview.md Template
 
@@ -29,6 +31,7 @@ Task lists appear in both `plan.md` and `overview.md`, but for different reasons
 ## Current Status
 - Phase: Research / Plan / Task / Done
 - Active: task-0X <name>
+- Execution mode: Autonomous / Step-by-step (set once the plan is confirmed)
 
 ## Files
 - Research: ./research.md
@@ -42,6 +45,9 @@ Task lists appear in both `plan.md` and `overview.md`, but for different reasons
 
 ## Final Verification
 <Filled after all tasks: overall acceptance checks run, output summary, pass/fail>
+
+## Simplification
+<Filled after final verify passes: files simplified by the code-simplifier subagent, what changed, re-verification result — or "no changes">
 ```
 
 ## research.md Template

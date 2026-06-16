@@ -1,0 +1,3 @@
+[submodule "PabloNAX"]
+	path = PabloNAX
+	url = git@github.com:PabloNAX/ultracode-skill.git
