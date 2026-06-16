@@ -1,3 +1,9 @@
-[submodule "PabloNAX"]
-	path = PabloNAX
+[submodule "Deep-Research-skills"]
+	path = Deep-Research-skills
+	url = git@github.com:Weizhena/Deep-Research-skills.git
+[submodule "ultracode-skill"]
+	path = ultracode-skill
 	url = git@github.com:PabloNAX/ultracode-skill.git
+[submodule "mattpocock-skills"]
+	path = mattpocock-skills
+	url = git@github.com:mattpocock/skills.git
